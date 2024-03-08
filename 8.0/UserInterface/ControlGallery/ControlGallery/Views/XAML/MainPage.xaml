@@ -21,7 +21,7 @@
                           CommandParameter="{x:Type views:BlazorWebViewDemoPage}" />
                 <TextCell Text="Border"
                           Detail="Draw a border or background around a control"
-                          Command="{Binding NavigateCommand}"
+                          Command="{Binding NavigateBorderCommand}"
                           CommandParameter="{x:Type views:BorderDemoPage}" />
                 <TextCell Text="BoxView"
                           Detail="Display a colored rectangle"

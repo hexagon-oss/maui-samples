@@ -6,6 +6,15 @@ namespace ControlGallery.Drawables
 {
     public class GraphicsDrawable : IDrawable
     {
+	    private readonly Font _font;
+	    private readonly AutoResetEvent _event;
+
+	    public GraphicsDrawable()
+	    {
+			_font = new Font(Font.Default.Name, 60, FontStyleType.Normal);
+			_event = new AutoResetEvent(false);
+	    }
+
         public void Draw(ICanvas canvas, RectF dirtyRect)
         {
             canvas.StrokeLineCap = LineCap.Round;
@@ -47,6 +56,14 @@ namespace ControlGallery.Drawables
             canvas.RestoreState();
             canvas.ResetState();
 
+            var rect = new Rect(0, 0, 200, 40);
+            canvas.Translate(0, 0);
+            canvas.FillColor = Colors.White;
+            canvas.FillRectangle(rect);
+            canvas.Font = _font;
+            canvas.FontSize = 20;
+            canvas.DrawString($"{now:hh:mm:ss.fff}", rect, HorizontalAlignment.Left, VerticalAlignment.Center);
+            _event.WaitOne(500);
         }
     }
 }
