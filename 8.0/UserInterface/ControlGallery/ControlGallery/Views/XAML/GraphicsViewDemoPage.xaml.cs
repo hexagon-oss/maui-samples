@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls;
+﻿using System.Diagnostics;
+using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
@@ -13,9 +14,14 @@ namespace ControlGallery.Views.XAML
 	        SizeChanged += OnSizeChanged;
 	        m_timer = Dispatcher.CreateTimer();
 	        m_timer.Interval = TimeSpan.FromSeconds(0.1);
-	        m_timer.Tick += (sender, args) => GraphicsView.Invalidate();
+	        m_timer.Tick += OnTick;
 			m_timer.Start();
         }
+
+	    private void OnTick(object sender, EventArgs args)
+	    {
+		    GraphicsView.Invalidate();
+	    }
 
 	    protected virtual void OnSizeChanged(object? sender, EventArgs args)
 	    {
