@@ -12,7 +12,7 @@
                FontSize="50"
                FontAttributes="Bold"
                HorizontalOptions="Center" />
-        <GraphicsView Drawable="{StaticResource drawable}"
+        <GraphicsView x:Name="GraphicsView" Drawable="{StaticResource drawable}"
                       HeightRequest="300"
                       WidthRequest="400" />
     </VerticalStackLayout>

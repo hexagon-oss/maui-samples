@@ -4,9 +4,16 @@ namespace ControlGallery.Views.XAML
 {
     public partial class GraphicsViewDemoPage : ContentPage
     {
-        public GraphicsViewDemoPage()
+	    private readonly IDispatcherTimer m_timer;
+
+	    public GraphicsViewDemoPage()
         {
-            InitializeComponent();
+	        InitializeComponent();
+
+	        m_timer = Dispatcher.CreateTimer();
+	        m_timer.Interval = TimeSpan.FromSeconds(0.1);
+	        m_timer.Tick += (sender, args) => GraphicsView.Invalidate();
+			m_timer.Start();
         }
     }
 }

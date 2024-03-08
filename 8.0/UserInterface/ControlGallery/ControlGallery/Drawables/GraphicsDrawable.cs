@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Graphics;
 using System;
+using Font = Microsoft.Maui.Graphics.Font;
 
 namespace ControlGallery.Drawables
 {
@@ -44,6 +45,8 @@ namespace ControlGallery.Drawables
             canvas.Rotate(6 * now.Second);
             canvas.DrawLine(0, 10, 0, -80);
             canvas.RestoreState();
+            canvas.ResetState();
+
         }
     }
 }
